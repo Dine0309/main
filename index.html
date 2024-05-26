@@ -46,10 +46,7 @@
     }
     .photo {
       text-align: center;
-      margin-bottom: 10px;
-      width: 300px;
-      height: 300x;
-      margin-left: 250px;
+      margin-bottom: 20px;
     }
     .photo img {
       max-width: 100%;
@@ -62,77 +59,14 @@
     .contact img {
       width: 30px;
       height: 30px;
-      margin: 5px;  
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>jrldnzrn</h1>
-</header>
-
-<nav>
-  <a href="#about">About Me</a>
-  <a href="#hobbies">Hobbies</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<div class="container">
-  <section class="photo">
-    <p><img src="./photos/jeraldine.jpg" alt="Me"></p>
-  </section>
-
-  <section id="about" class="card">
-    <h2>About Me</h2>
-    <p>My name is Jeraldine Nazareno studying at St. Louis College Valenzuela taking , I am taking BS Accounting Information System I am currently a  2nd Year College Student, I live in Manggahan St., Karuhatan, Valenzuela City, My hobbies are badminton, volleyball, arnis, and watching horror movies.
-    </p>
-  </section>
-
-  <section id="hobbies" class="card">
-    <h2>Hobbies</h2>
-    <p><b>Badminton</b>
-        
-      <br>in my Highschool days in St. Therese, I was a Badminton Varisity Player, where me and my friends play badminton and also volleyball, and basketball.</p>
-      
-      <p><b>Arnis</b></p>
-      <p><video width="500" height="250" controls>
-  <source src="./video/arnis.mp4" type="video/mp4">
-</video>
-          <br>I studied in Pamantasan ng Lungsod ng Valenzuela as a college freshman taking BS in Accountancy, where I first pursue my dream to become a Accountant, and also where I develop a liking in Arnis.</p>
-      
-        <p><b>Volleyball</b>
-    <br> I started to like volleyball because of my friends and it is also a well known sport for girls in the Philippines.</p>
-  </section>
-
-  <section id="contact" class="card">
-    <h2>Contact</h2>
-    <div class="contact">
-      <p><b>Contact Number:</b> 09123456789</p>
-        <p><a href="https://www.facebook.com/jeraldine.nazareno.9"><img src="./photos/facebook.png" alt="Facebook"></a></p>
-    </div>
-  </section>
-<style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+      margin: 5px;
     }
     .registration-form {
       background-color: #fff;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      width: 300px;
-    }
-    .registration-form h2 {
-      margin-top: 0;
-      margin-bottom: 15px;
-      text-align: center;
+      margin-top: 20px;
     }
     .registration-form label {
       display: block;
@@ -161,9 +95,54 @@
 </head>
 <body>
 
-  <div class="registration-form">
+<header>
+  <h1>jrldnzrn</h1>
+</header>
+
+<nav>
+  <a href="#about">About Me</a>
+  <a href="#hobbies">Hobbies</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+  <section class="photo">
+    <p><img src="./photos/jeraldine.jpg" alt="Me"></p>
+  </section>
+
+  <section id="about" class="card">
+    <h2>About Me</h2>
+    <p>My name is Jeraldine Nazareno studying at St. Louis College Valenzuela taking , I am taking BS Accounting Information System I am currently a  2nd Year College Student, I live in Manggahan St., Karuhatan, Valenzuela City, My hobbies are badminton, volleyball, arnis, and watching horror movies.
+    </p>
+  </section>
+
+  <section id="hobbies" class="card">
+    <h2>Hobbies</h2>
+     <p><b>Badminton</b>
+        
+      <br>in my Highschool days in St. Therese, I was a Badminton Varisity Player, where me and my friends play badminton and also volleyball, and basketball.</p>
+      
+      <p><b>Arnis</b></p>
+      <p><video width="500" height="250" controls>
+  <source src="./video/arnis.mp4" type="video/mp4">
+</video>
+          <br>I studied in Pamantasan ng Lungsod ng Valenzuela as a college freshman taking BS in Accountancy, where I first pursue my dream to become a Accountant, and also where I develop a liking in Arnis.</p>
+      
+        <p><b>Volleyball</b>
+    <br> I started to like volleyball because of my friends and it is also a well known sport for girls in the Philippines.</p>
+  </section>
+
+  <section id="contact" class="card">
+    <h2>Contact</h2>
+   <div class="contact">
+      <p><b>Contact Number:</b> 09123456789</p>
+        <p><a href="https://www.facebook.com/jeraldine.nazareno.9"><img src="./photos/facebook.png" alt="Facebook"></a></p>
+    </div>
+  </section>
+
+  <section class="registration-form">
     <h2>Registration Form</h2>
-    <form action="#" method="post">
+    <form id="registration-form" onsubmit="return showPopupMessage()">
       <label for="first-name">First Name:</label>
       <input type="text" id="first-name" name="first-name" required>
 
@@ -184,10 +163,15 @@
 
       <button type="submit">Submit</button>
     </form>
-  </div>
-
-</body>
+  </section>
 </div>
+
+<script>
+  function showPopupMessage() {
+    alert("You have successfully registered!");
+    return false; // Prevent form submission for demo purposes
+  }
+</script>
 
 </body>
 </html>
