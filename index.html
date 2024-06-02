@@ -95,6 +95,37 @@
     .form-row input {
       flex: 2;
     }
+    .registration-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    .registration-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .registration-form input, 
+    .registration-form select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .form-row label {
+      flex: 1;
+      margin-right: 10px;
+    }
+    .form-row input {
+      flex: 2;
+    }
     .registration-form button {
       width: 100%;
       padding: 10px;
@@ -133,6 +164,14 @@
     }
     .popup button:hover {
       background-color: #555;
+    }
+    .popup-info {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .popup-info div {
+      flex: 1 1 calc(33.333% - 10px);
+      margin: 5px;
     }
   </style>
 </head>
@@ -271,6 +310,13 @@
   <button onclick="window.print()">Print</button>
 </div>
 
+<div class="popup" id="popup">
+  <h2>Registration Complete</h2>
+  <p id="popup-message"></p>
+  <div id="popup-info" class="popup-info"></div>
+  <button onclick="closePopup()">Close</button>
+</div>
+
 <script>
   function showPopupMessage() {
     const firstName = document.getElementById('first-name').value;
@@ -281,7 +327,7 @@
     const formData = new FormData(document.getElementById('registration-form'));
     let popupInfo = '';
     formData.forEach((value, key) => {
-      popupInfo += `<strong>${key.replace(/-/g, ' ')}:</strong> ${value}<br>`;
+      popupInfo += `<div><strong>${key.replace(/-/g, ' ')}:</strong> ${value}</div>`;
     });
     document.getElementById('popup-info').innerHTML = popupInfo;
 
