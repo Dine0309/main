@@ -223,12 +223,53 @@
   </section>
 </div>
 
+<div class="overlay" id="overlay"></div>
+
+<div class="popup" id="popup">
+  <p id="popup-message"></p>
+  <button onclick="closePopup()">Close</button>
+  <button onclick="printInfo()">Print</button>
+</div>
+
+<div class="printable" id="printable">
+  <h2>Registration Information</h2>
+  <p id="printable-content"></p>
+  <button onclick="window.print()">Print this page</button>
+  <button onclick="closePrintable()">Close</button>
+</div>
+
 <script>
   function showPopupMessage() {
     const firstName = document.getElementById('first-name').value;
     const lastName = document.getElementById('last-name').value;
-    alert(`Thank you ${firstName} ${lastName} for your registration!`);
+    const popupMessage = `Thank you ${firstName} ${lastName} for your registration!`;
+    document.getElementById('popup-message').innerText = popupMessage;
+    
+    const formData = new FormData(document.getElementById('registration-form'));
+    let printableContent = '';
+    formData.forEach((value, key) => {
+      printableContent += `<strong>${key.replace(/-/g, ' ')}:</strong> ${value}<br>`;
+    });
+    document.getElementById('printable-content').innerHTML = printableContent;
+
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('popup').style.display = 'block';
     return false; // Prevent form submission for demo purposes
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+  function printInfo() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('printable').style.display = 'block';
+  }
+
+  function closePrintable() {
+    document.getElementById('printable').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
   }
 </script>
 
